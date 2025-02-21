@@ -21,10 +21,14 @@
   }
 
   .calendar{
-    background-color:"red";
+    background-color:azure;
     padding: 10px;
-    border-radius: 5px;
-    border: #40005d;
+    width: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    border-radius: 10px;
+    border: #aa5fca;
+    border-style: solid;
   }
   
   .expense-item h2 {
