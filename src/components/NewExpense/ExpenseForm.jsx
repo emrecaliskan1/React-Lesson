@@ -1,38 +1,37 @@
 import React, { useState } from 'react'
 import './ExpenseForm.css'
 
-function ExpenseForm({onAddExpense}){
+const ExpenseForm = ({onAddExpense}) => {
 
     // const [title,setTitle] = useState('');
     // const [amount,setAmount] = useState('');
     // const [date,setDate] = useState('');
 
     const [userInput,setUserInput] = useState({
-        title:'',
+        title:"",
         amount:0.0,
-        date:""
+        date:"",
     })
  
-    const titeChangeHandler = (e) => {
-        setUserInput({
-            //solunda kaldıgı değişkenlerin bileşenlerin ayrı ayrı yazılmasını sağlar. spread operatörü ve prevState araştır
-            ...userInput,
-            title:e.target.value
-        }) //updates userInput changestitle
-    }
+    const titleChangeHandler = (e) => {
+        setUserInput((prevState) => {
+          return { ...prevState, title: e.target.value };
+        }); //updates userInput state and changes title
+        //setTitle(e.target.value);
+      };
 
-    const amountHandler = (e) => {
+    const amountChangeHandler = (e) => {
         setUserInput({
             ...userInput,
-            amount:e.target.value
+            amount:e.target.value,
         })
         // setAmount(e.target.value)
     }
 
-    const dateHanndler = (e) => {
+    const dateChangeHandler = (e) => {
         setUserInput({
             ...userInput,
-            date:e.target.value
+            date:e.target.value,
         })
     }
 
@@ -52,37 +51,61 @@ function ExpenseForm({onAddExpense}){
 
         setUserInput({
             title:"", 
-            amount:0,
-            date:""
+            amount:0.0,
+            date:"",
         })
     }
 
 
   return (
     <form onSubmit={submitHandler}>
-        <div className='new-expense__controls'>
-            <div className='new-expense__control'>
+
+        <div className="new-expense__controls">
+
+            <div className="new-expense__control">
                 <label>Title</label>
-                <input type="text" onChange={titeChangeHandler} value={userInput.title}/>
+
+                <input
+                type="text"
+                onChange={titleChangeHandler}
+                value={userInput.title}
+                ></input>
+
             </div>
 
-            <div className='new-expense__control'>
+            <div className="new-expense__control">
                 <label>Amount</label>
-                <input type="number" min="0.01" step="0.01" onChange={amountHandler} value={userInput.amount}/>
+
+                <input
+                type="number"
+                min="0.01"
+                step="0.01"
+                onChange={amountChangeHandler}
+                value={userInput.amount}
+                ></input>
+
             </div>
 
-            <div className='new-expense__control'>
+            <div className="new-expense__control">
                 <label>Date</label>
-                <input type="date" min="2024-01-01" max="2040-01-01" onChange={dateHanndler} value={userInput.date}/>
+
+                <input
+                type="date"
+                min="2024-01-01"
+                max="2040-01-01"
+                onChange={dateChangeHandler}
+                value={userInput.date}
+                ></input>
+                
             </div>
 
-            <div className='new-expense__actions'>
-                <button type='submit'>Add Expense</button>
+            <div className="new-expense__actions">
+                <button type="submit">Add Expense</button>
             </div>
 
         </div>
 
-    </form>
+  </form>
   )
 }
 

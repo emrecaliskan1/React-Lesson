@@ -5,25 +5,25 @@ import "./ExpenseItem.css";
 
 const ExpenseItem =({date,amount,title}) => {
 
-  const [newTitle,setNewTitle] = useState(title); //Geriye array döndürür. Değişimini takip ettiğimiz değişkeni okumak için.
-  const [newPrice,setNewPrice] = useState(amount);
+  // const [newTitle,setNewTitle] = useState(title); //Geriye array döndürür. Değişimini takip ettiğimiz değişkeni okumak için.
+  // const [newPrice,setNewPrice] = useState(amount);
 
-  const clickHandler = () => {
-    console.log('newTitle value: ' + newTitle);
-    console.log('clicked');
-    setNewTitle("Updated");
-    console.log('newTitle value: ' + newTitle);
-  }
+  // const clickHandler = () => {
+  //   console.log('newTitle value: ' + newTitle);
+  //   console.log('clicked');
+  //   setNewTitle("Updated");
+  //   console.log('newTitle value: ' + newTitle);
+  // }
 
-  const increasePrice = () => {
-    console.log(newPrice)
-      setNewPrice(newPrice+10)
-      console.log(newPrice)
-  }
+  // const increasePrice = () => {
+  //   console.log(newPrice)
+  //     setNewPrice(newPrice+10)
+  //     console.log(newPrice)
+  // }
 
-  const decreasePrice = () => {
-    setNewPrice(newPrice-10)
-  }
+  // const decreasePrice = () => {
+  //   setNewPrice(newPrice-10)
+  // }
 
 
 
@@ -37,12 +37,12 @@ const ExpenseItem =({date,amount,title}) => {
     <Card className="expense-item">
      <ExpenseDate date={date} />
       <div className="expense-item__description">
-        <h2>{newTitle}</h2>
-        <div className="expense-item__price">${newPrice.toFixed(2)}</div>
+        <div>{title}</div>
+        <div className="expense-item__price">${amount}</div>
       </div>
-      <button className="title-button"  onClick={clickHandler}>Change Title</button> 
+      {/* <button className="title-button"  onClick={clickHandler}>Change Title</button> 
       <button className="art-azalt" onClick={increasePrice}>+</button>
-      <button className="art-azalt" onClick={decreasePrice}>-</button>
+      <button className="art-azalt" onClick={decreasePrice}>-</button> */}
     </Card>
   );
 }

@@ -2,8 +2,7 @@ import './ExpenseDate.css';
 
 const ExpenseDate = ({date}) =>{
 
-    const newDate = new Date(newDate)
-    console.log(newDate)
+    const newDate = new Date(date)
 
     const month = newDate.toLocaleDateString("en-US",{month:"long"});
     const year = newDate.getFullYear();
