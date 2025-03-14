@@ -5,6 +5,7 @@ import ExpenseItem from "./components/Expenses/ExpenseItem"
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 import ExpenseFilter from "./components/ExpensesFilter/ExpenseFilter";
+import ExpenseChart from "./components/Expenses/ExpenseChart";
 
 const App = () => {
 
@@ -45,9 +46,10 @@ const App = () => {
 
 
   return (
-    <div>
+    <div >
       <NewExpense onAddExpense={addExpense}></NewExpense>
       <ExpenseFilter selected = {year} onChangeFilter={dropDownChangeHandler} />
+      <ExpenseChart expenses = {filteredExpense()} />
       <Expenses expenses = {filteredExpense()}></Expenses>
     </div>
   );
